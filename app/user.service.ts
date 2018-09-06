@@ -8,28 +8,33 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
 @Injectable({
-      providedIn: 'root'
-    })
+  providedIn: 'root'
+})
 export class UserService {
-  const httpOptions = {
-     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Credentials': true
-      })
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Credentials': true
+  })
 };
-constructor( private http:HttpClient) { }
-getApi(){
-  return this.http.get("https://jsonplaceholder.typicode.com/users");
-}
+  constructor( private http:HttpClient) { }
 
-getLocalApi(){
-  return this.http.get("http://localhost/customapi/get.php",this.httpOptions);
-}
+ 
+  getApi(){
+     return this.http.get("https://jsonplaceholder.typicode.com/users");
+  }
 
-getAdds(){
- return [
-   new AddItem(HomeComponent,{name:'Walter',bio:'brave'}),
-   new AddItem(AboutComponent,{name:'Richard',bio:'bravery'}),
-  ];
-}
+   getLocalApi(){
+
+      return this.http.get("http://localhost/customapi/get.php",this.httpOptions);
+
+   }
+
+  getAdds(){
+
+   return [
+      new AddItem(HomeComponent,{name:'Walter',bio:'brave'}),
+      new AddItem(AboutComponent,{name:'Richard',bio:'bravery'}),
+    ];
+  }
 
