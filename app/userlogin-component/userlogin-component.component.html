@@ -12,5 +12,16 @@
 		<input type="text" name="email" placeholder="Enter Email" ngModel> <br>
 		<input type="submit" value="Submit">
 	</form>
+	<h3>Fetched From Database</h3>
+	<table border="2">
+	 	<tr><th>Id</th><th>Name</th><th>Email</th><th>Password</th></tr>
+	 	<tr  *ngFor="let the of users" >
+	 		<td>{{the.id}}</td>
+	 	    <td>{{the.name}}</td>
+	 	    <td>{{the.email}}</td>
+	 	    <td>{{the.password}}</td>
+	 	</tr>
+    </table>
 </div>
+	
 

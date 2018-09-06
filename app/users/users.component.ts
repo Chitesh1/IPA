@@ -8,8 +8,11 @@ import {UserService} from '../user.service';
 })
 export class UsersComponent implements OnInit {
 
+  private users = [];
+  private localusers =[];
   constructor( private userservice: UserService) {this.userservice.getApi().subscribe(data=>{this.users = data as string[];}); }
 
+   
   ngOnInit() {
 
   }

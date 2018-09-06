@@ -10,6 +10,7 @@ import {UserService} from '../user.service';
 export class UserloginComponentComponent implements OnInit {
 cookieval:String= [];
 full:Array=[];
+users=[];
 email:string = "";
 name:string = "";
 phone:string = "";
@@ -25,8 +26,8 @@ const httpOptions = {
 }
 
   ngOnInit() {
-
-
+ 
+   this.userservice.getLocalApi().subscribe(data=>{this.users=data});
 
   }
  submitData(data)
@@ -34,11 +35,10 @@ const httpOptions = {
    this.name=data.name;
    this.email=data.email;
    this.phone=data.phone;
-  /* this.http.post("http://localhost/customapi/index.php",{name:this.name,username:this.email},this.httpOptions).subscribe(data=>{console.log(data)},error=>{console.log("Error"+this.response)});*/
+  
    this.fulllink = "?name="+this.name+"&&email="+this.email+"&&phone="+this.phone;
-   this.http.post("http://localhost/customapi/index.php"+this.fulllink,,this.httpOptions).subscribe(data=>{console.log(data)},error=>{alert("Data Has Been Inserted");});
+   this.http.post("http://localhost/customapi/index.php"+this.fulllink).subscribe(data=>{console.log(data)},error=>{alert("Data Has Been Inserted");});
    
-   //this.http.get("http://localhost/customapi",,).subscribe(data=>console.log(data);)
    localStorage.setItem('CustomerDetailUser',data.name);
    localStorage.setItem('CustomerDetailEmail',data.email);
    localStorage.setItem('CustomerDetailAddress',data.address);

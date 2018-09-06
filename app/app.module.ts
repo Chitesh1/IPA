@@ -23,6 +23,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MaterialsComponent } from './materials/materials.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatDatePicker} from '@angular/material/datepicker';
+import { AddsDirective } from './adds.directive';
+import { AddsComponent } from './adds/adds.component';
 const routes: Routes = [
   { 
   path: '', 
@@ -59,6 +61,10 @@ const routes: Routes = [
   {
    path:'materials',
    component:MaterialsComponent
+  },
+  {
+   path:'adds',
+   component:AddsComponent
   }
 ];
 @NgModule({
@@ -75,7 +81,9 @@ const routes: Routes = [
     UserloginComponentComponent,
     AnimationsComponent,
     ApiComponent,
-    MaterialsComponent
+    MaterialsComponent,
+    AddsDirective,
+    AddsComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +96,7 @@ const routes: Routes = [
     MatInputModule,
     MatAutocompleteModule,
     MatBottomSheetModule,
-    RouterModule.forRoot(routes);
+    RouterModule.forRoot(routes)
   ],
   providers: [UserService,LoggerService],
   bootstrap: [AppComponent]
