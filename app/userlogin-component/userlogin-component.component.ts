@@ -14,7 +14,7 @@ users=[];
 email:string = "";
 name:string = "";
 phone:string = "";
-fulllink:string = "";
+ fulllink:string = "";
 editHero: Hero;
 const httpOptions = {
   headers: new HttpHeaders({
