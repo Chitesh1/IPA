@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
 @Injectable({
-providedIn: 'root'
+  providedIn: 'root'
 })
 export class UserService {
 const httpOptions = {
