@@ -1,6 +1,24 @@
 <div class="" align="center">
-Name:<b>{{selectedid.name}}</b><br>
-Id:<b>{{selectedid.id}}</b><br>
-UserName:<b>{{selectedid.username}}</b><br>
-Email:<b>{{selectedid.email}}</b>
+ <table border="3">
+ 	<tr><th>Id</th><th>Name</th><th>Email</th><th>Password</th></tr>
+ 	<tr *ngFor="let the of selectedid">
+ 		<td>{{the.id}}</td>
+ 		<td>{{the.name}}</td>
+ 		<td>{{the.email}}</td>
+ 		<td>{{the.password}}</td>
+ 	</tr>
+ </table>
+ <p><b>To Insert New Record Please Login First</b></p>
+ <h4>UpdateRecords!</h4>
+ <form #submit="ngForm" (ngSubmit)="submitData(submit.value)" >
+ UpdateName:<input type="text" placeholder="Enter Name" name="name" ngModel><br>
+ UpdateEmail:<input type="text" placeholder="Enter Email" name="email" ngModel><br>
+ UpdatePassword<input type="text" placeholder = "Enter Password" name="password" ngModel><br>
+<input type="submit">
+</form>
+<h4>Delete Records</h4>
+<form #submit="ngForm" (ngSubmit)="deleteData(submit.value)" >
+Enter Id:<input type="text" placeholder="Enter Id" name="id" ngModel><br>
+<input type="submit">
+</form>
 </div>

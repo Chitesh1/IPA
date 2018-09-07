@@ -21,20 +21,20 @@ const httpOptions = {
 
  
   getApi(){
-     return this.http.get("https://jsonplaceholder.typicode.com/users");
-  }
-
-   getLocalApi(){
-
       return this.http.get("http://localhost/customapi/get.php",this.httpOptions);
-
+  }
+   getLocalApi(){
+      return this.http.get("http://localhost/customapi/get.php",this.httpOptions);
    }
-
+   putApi(){
+      return this.http.put("http://localhost/customapi/put.php/");
+   }
+   deleteApi(){
+    return this.http.delete("http://localhost/customapi/delete.php");
+   }
   getAdds(){
-
    return [
       new AddItem(HomeComponent,{name:'Walter',bio:'brave'}),
       new AddItem(AboutComponent,{name:'Richard',bio:'bravery'}),
     ];
   }
-
